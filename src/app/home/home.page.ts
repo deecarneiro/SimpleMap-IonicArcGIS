@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Map from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
+import { Geolocation} from '@capacitor/core';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,17 @@ import MapView from '@arcgis/core/views/MapView';
 })
 export class HomePage implements OnInit {
 
-  constructor() {}
-  ngOnInit(): void {
+
+  constructor() {
+  }
+
+  private latitude: number;
+  private longitude: number;
+
+  public async ngOnInit() {
+    const position = await Geolocation.getCurrentPosition();
+    this.latitude = position.coords.latitude;
+    this.longitude = position.coords.longitude;
 
     const map = new Map({
       basemap: "topo-vector" //Reference to the base of the map
@@ -20,7 +30,7 @@ export class HomePage implements OnInit {
       container: "container", // Reference to the view div 
       map: map, // Reference to the map object created before the view
       zoom: 4, // Sets zoom level based on level of detail (LOD)
-      center: [15, 65] // Sets center point of view using longitude,latitude
+      center: [this.longitude, this.latitude] // Sets center point of view using longitude,latitude
     });
 
   }
