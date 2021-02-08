@@ -1,4 +1,4 @@
-#SimpleMap-IonicArcGIS
+# SimpleMap-IonicArcGIS
 
 Simple map to show how to integrate ArcGIS JS API with Ionic Framework 5.
 
