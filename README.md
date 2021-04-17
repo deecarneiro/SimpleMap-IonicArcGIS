@@ -32,7 +32,7 @@ $ ionic serve
  
 ![Simple Map](https://user-images.githubusercontent.com/44411176/107170494-38e23f00-699f-11eb-9a47-bd7c8cac419d.png)  
 
-## Explanations
+## Code Snippets
 
 
 1. Importing Map and MapView
